@@ -1,21 +1,13 @@
-# Instructions:
-#     - Create a folder named "cpsc-24500-video-java-introduction"
-#     - Add index.html, index.css, web.config, and at least one mp4 recording
-#     - Make a scripts folder and add this ps1 file to the folder
-#     - Make the folder a Git repository ("git init .")
-#     - Add the index.html, index.css, web.config, and mp4 files ("git add ...)
-#     - Add the scripts folder ("git add ...)
-#     - Commit revision (git commit -a -m "Add initial files.")
-#     - Run this script
 [CmdletBinding()]
 Param(
   [Parameter()]
     [switch]$production = $false
 )
 
-Import-Module $EJPLibraryPathName -Force
 Write-Host 'Executing:'$PSCommandPath
-$ProductionAppName="sp18-cpsc-24500-001-video"
+Import-Module $EJPLibraryPathName -Force
+
+$ProductionAppName="mediaatoz"
 $WebAppName="$ProductionAppName-test-$(Get-Random)"
 If ($production) {
     # WARNING: There will be a delay before the web app name can be reused once it is removed.
@@ -44,13 +36,8 @@ if ($VerifyContinue -ne "y") {
     Exit-WithMessage("User cancelled.")
 }
 
-# Create a resource group.
 New-AzureRmResourceGroup -Name $ResourceGroup -Location $Location
-
-# Create an App Service plan in `Free` tier.
 New-AzureRmAppServicePlan -Name $AppServicePlanName -Location $Location -ResourceGroupName $ResourceGroup -Tier Free
-
-# Create a web app.
 New-AzureRmWebApp -Name $WebAppName -Location $Location -AppServicePlan $AppServicePlanName -ResourceGroupName $ResourceGroup
 
 # Configure GitHub deployment from your GitHub repo and deploy once.
@@ -71,15 +58,3 @@ $password = $xml.SelectNodes("//publishProfile[@publishMethod=`"MSDeploy`"]/@use
 #### This method saves your password in the git remote. You can use a Git credential manager to secure your password instead.
 git remote add azure "https://${username}:$password@$WebAppName.scm.azurewebsites.net"
 git push azure master
-
-# Don't forget to 'git remote remove azure' and delete the Resource group in order to redeploy with script.
-
-Write-Host
-Write-Host "Hints:" -foregroundcolor "Yellow"
-Write-Host "  git commit -a -m 'Update index.html.'" -foregroundcolor "Yellow"
-Write-Host "  git push" -foregroundcolor "Yellow"
-Write-Host "  git push azure master" -foregroundcolor "Yellow"
-Write-Host "  Get-AzureRmResourceGroup" -foregroundcolor "Yellow"
-Write-Host "  git remote remove azure" -foregroundcolor "Yellow"
-Write-Host "  Remove-AzureRmResourceGroup $ResourceGroup" -foregroundcolor "Yellow"
-
