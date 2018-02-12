@@ -1,4 +1,4 @@
-$ResourceGroupName = 'media-rg'
+$ResourceGroupName = 'mediaatoz-rg'
 # Storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 $StorageAccountName = 'mediaatoz'
 
