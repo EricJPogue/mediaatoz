@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<video width="960" height="540" controls>
+<script>
+    var url = window.location.href;
+    var n = url.indexOf("?video-url=");
+    var videoUrl = url.substring(n+11);
+    var s = '<source src=' 
+    s += videoUrl;
+    s += ' type="video/mp4">';
+    document.write(s);
+</script>
+</video>
+</body>
+</html>
