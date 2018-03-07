@@ -6,12 +6,10 @@ Param(
 
 $ResourceGroupName = 'mediaatoz-rg'
 $StorageAccountName = 'mediaatoz'
-$ContainerName = 'object-oriented-programming'
+$ContainerName = 'environment-configuration'
 
 $BlobFileName = $FileName
 
 $StorageKey = Get-AzureRMStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName
 $StorageContext = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageKey[0].Value
-
-Get-AzureStorageBlob -Container $ContainerName -Context $StorageContext | select Name 
-Get-AzureStorageBlobContent -Blob $BlobFileName -Container $containerName -Destination ".\" -Context $StorageContext 
+Set-AzureStorageBlobContent -Context $StorageContext -Container $ContainerName -File $FileName -Blob $BlobFileName

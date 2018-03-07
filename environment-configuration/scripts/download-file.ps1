@@ -6,7 +6,7 @@ Param(
 
 $ResourceGroupName = 'mediaatoz-rg'
 $StorageAccountName = 'mediaatoz'
-$ContainerName = 'object-oriented-programming'
+$ContainerName = 'environment-configuration'
 
 $BlobFileName = $FileName
 
