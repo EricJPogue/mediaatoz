@@ -1,6 +1,6 @@
 $ResourceGroupName = 'mediaatoz-rg'
 $StorageAccountName = 'mediaatoz'
-$ContainerName = 'transfer'
+$ContainerName = 'cpsc-24500'
 
 $StorageKey = Get-AzureRMStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName
 $StorageContext = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageKey[0].Value

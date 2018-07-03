@@ -6,7 +6,7 @@ Param(
 
 $ResourceGroupName = 'mediaatoz-rg'
 $StorageAccountName = 'mediaatoz'
-$ContainerName = 'transfer'
+$ContainerName = 'cpsc-24500'
 
 $BlobFileName = $FileName
 
