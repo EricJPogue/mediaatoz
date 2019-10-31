@@ -17,9 +17,9 @@ if [ "$1" = "--help" -o "$1" = "-h" -o $# -eq 0 ]; then
     echo "This script creates the MS Azure Resource Group and Container to store course videoes"
     echo
     echo "Example Usage:"
-    echo "bash $scriptFileName --create-resource-group-storage-account-and-container"
+    echo "bash $scriptFileName --create-resource-group-and-storage-account"
+    echo "bash $scriptFileName --create-container"
     echo "bash $scriptFileName --upload-file [FileName] [RemoteFileName]"
-    echo "bash $scriptFileName --sync-directory"
     echo "bash $scriptFileName --list-files"
     echo "bash $scriptFileName --list-blob-properties [FileName]"
     echo "bash $scriptFileName --verify-file [FileName]"
@@ -36,7 +36,7 @@ function setStorageAccountConnectionString() {
     export AZURE_STORAGE_CONNECTION_STRING=$connectionString
 }
 
-if [ "$1" = "--create-resource-group-storage-account-and-container" ]; then
+if [ "$1" = "--create-resource-group-and-storage-account" ]; then
     echo
     echo "Creating resource group: $resourceGroupName"
     az group create \
@@ -50,14 +50,13 @@ if [ "$1" = "--create-resource-group-storage-account-and-container" ]; then
         --resource-group $resourceGroupName \
         --location $location \
         --sku Standard_LRS 
-        #\
-        #--kind BlobStorage \
-        #--access-tier Hot
     echo
+fi
 
+if [ "$1" = "--create-resource-group-and-storage-account" ]; then
     setStorageAccountConnectionString
 
-    echo "Creating class recordings public container: $videosContainerName"
+    echo "Creating container: $videosContainerName"
     az storage container create \
         --name $videosContainerName \
         --public-access blob
@@ -83,11 +82,6 @@ if [ "$1" = "--upload-file" -o "$1" = "-upload" -o "$1" = "-u" ]; then
     fileName=$2
     remoteFileName=$3
     uploadFile $fileName $remoteFileName
-fi
-
-if [ "$1" = "--sync-directory" -o "$1" = "-sync" -o "$1" = "-s" ]; then
-    setStorageAccountConnectionString
-    az storage blob sync -c $videosContainerName -s "./"
 fi
 
 if [ "$1" = "--list-files" -o "$1" = "-lf" ]; then
