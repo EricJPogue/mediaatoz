@@ -119,7 +119,7 @@ function verifyFile() {
     if [ "$localFileSize" = "$remoteFileSize" ]; then
         printf "...Passed\n"
     else 
-        printf "${RED}does not have the same file size $localFileSize/$remoteFileSize...Failed${NC}\n"
+        printf "${RED}...Failed (does not have the same file size $localFileSize/$remoteFileSize)${NC}\n"
     fi
 }
 
