@@ -1,0 +1,58 @@
+{
+    "NameLocal": "dale",
+    "NameRemote": "jlh8u41d",
+    "Created": "2020-06-29T15:25:07-05:00",
+    "Updated": "2020-06-29T15:25:07-05:00",
+    "ETag": "",
+    "URL": "",
+    "Documents": [
+        {
+            "NameLocal": "chapter-01-lecture.pptx",
+            "ETag": "0x8D81C6AA1764D3A",
+            "MD5": "234ff0c3de0a57a00897ce80d8681320",
+            "PreviousMD5s": null
+        },
+        {
+            "NameLocal": "chapter-01-lecture.mp4",
+            "ETag": "0x8D81C6AF93370B4",
+            "MD5": "c8c0adea7f008ef37125d2423a359150",
+            "PreviousMD5s": null
+        },
+        {
+            "NameLocal": "chapter-02-lecture.mp4",
+            "ETag": "0x8D81C6B11369FC8",
+            "MD5": "908a2f801ba06034d61a12e464f891ce",
+            "PreviousMD5s": null
+        },
+        {
+            "NameLocal": "chapter-02-lecture.pptx",
+            "ETag": "0x8D81C6B140DC8DB",
+            "MD5": "0f7d211ee73e69f89f38c6699af83390",
+            "PreviousMD5s": null
+        },
+        {
+            "NameLocal": "chapter-03-lecture.mp4",
+            "ETag": "0x8D838E5F967838D",
+            "MD5": "4f9e4e5f6d0f807f490e77b41b25f6f6",
+            "PreviousMD5s": null
+        },
+        {
+            "NameLocal": "chapter-03-lecture.pptx",
+            "ETag": "0x8D838E602CE41FD",
+            "MD5": "cc4dd7f5a016ea6f351594c96ee09686",
+            "PreviousMD5s": null
+        },
+        {
+            "NameLocal": "chapter-04-lecture.mp4",
+            "ETag": "0x8D8397E9F9CB854",
+            "MD5": "573a39c2ade6880d87030ff42417bc0d",
+            "PreviousMD5s": null
+        },
+        {
+            "NameLocal": "chapter-04-lecture.pptx",
+            "ETag": "0x8D8397EA4F53815",
+            "MD5": "c166c12b194121d0ce9bcc791ef13279",
+            "PreviousMD5s": null
+        }
+    ]
+}
