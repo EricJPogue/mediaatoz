@@ -1,0 +1,11 @@
+choco install python -y
+choco install vscode -y
+choco install vscode-python -y
+
+choco install microsoft-teams -y
+choco install git -y
+
+choco install nodejs -y
+choco install openjdk -y
+
+
